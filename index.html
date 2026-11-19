@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta
+    name="description"
+    content="Aung Myat Kyaw — Computer Science graduate exploring AI, machine learning and software development."
+  >
+
+  <title>Aung Myat Kyaw | Portfolio</title>
+
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("amk-theme");
+
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {
+      // Use light mode when browser storage is unavailable.
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #ffffff;
+      --surface: #f5f8fb;
+      --text: #172b3a;
+      --muted: #526473;
+      --accent: #087568;
+      --accent-light: #e8f5ef;
+      --secondary: #6953b7;
+      --border: #dce5e9;
+      --header: rgba(255, 255, 255, 0.97);
+      --hero-start: #edf8f2;
+      --hero-end: #eef0ff;
+      --button-text: #ffffff;
+      --shadow: 0 18px 55px rgba(25, 50, 70, 0.07);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --background: #101824;
+      --surface: #192534;
+      --text: #edf4fb;
+      --muted: #b2c2d1;
+      --accent: #86e2c8;
+      --accent-light: #203c38;
+      --secondary: #bcaeff;
+      --border: #344556;
+      --header: rgba(16, 24, 36, 0.97);
+      --hero-start: #193a35;
+      --hero-end: #292843;
+      --button-text: #10231e;
+      --shadow: 0 18px 55px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 15px;
+      z-index: 100;
+      padding: 10px 15px;
+      background: var(--accent);
+      color: var(--button-text);
+    }
+
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--header);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 82px;
+      padding-block: 15px;
+    }
+
+    .logo {
+      white-space: nowrap;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 13px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle,
+    .menu-button {
+      padding: 9px 13px;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .theme-toggle {
+      order: 3;
+    }
+
+    .menu-button {
+      display: none;
+      order: 2;
+    }
+
+    /* SHARED STYLES */
+
+    section {
+      padding-block: 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(30px, 4vw, 42px);
+      letter-spacing: -1.3px;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: -0.4px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .section-description {
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .grid-three {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: 16px;
+    }
+
+    .grid-three .card:nth-child(2) {
+      border-top-color: var(--secondary);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 5px 12px;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      color: var(--muted);
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 19px;
+      color: var(--text);
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--button-text);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* HOME */
+
+    #home {
+      background:
+        radial-gradient(
+          ellipse at top left,
+          var(--hero-end),
+          transparent 65%
+        );
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 60px;
+      min-height: 650px;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .location-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      margin: 22px 0;
+      font-size: clamp(48px, 7vw, 78px);
+      letter-spacing: -4px;
+    }
+
+    h1 span {
+      color: var(--secondary);
+    }
+
+    .hero-description {
+      max-width: 550px;
+      font-size: 19px;
+    }
+
+    .profile-card {
+      overflow: hidden;
+      padding: 28px;
+      background:
+        linear-gradient(
+          145deg,
+          var(--hero-start),
+          var(--hero-end)
+        );
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      height: 320px;
+      margin-bottom: 25px;
+      object-fit: cover;
+      object-position: center 43%;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .profile-card h2 {
+      font-size: 27px;
+      letter-spacing: -0.8px;
+    }
+
+    .profile-line {
+      padding-block: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .profile-line strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .profile-line span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ABOUT AND EDUCATION */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 55px;
+    }
+
+    .about-copy p {
+      font-size: 17px;
+    }
+
+    .interest-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .interest-list li {
+      margin-bottom: 10px;
+    }
+
+    .institution {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* PROJECTS */
+
+    .project {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      overflow: hidden;
+      margin-bottom: 26px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .project-visual {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 280px;
+      padding: 28px;
+      background: var(--accent-light);
+    }
+
+    .project-visual.blue {
+      background: var(--hero-end);
+    }
+
+    .project-visual.neutral {
+      background: var(--surface);
+    }
+
+    .project-category {
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .project-content {
+      min-width: 0;
+      padding: 32px;
+    }
+
+    .poster-frame {
+      width: 100%;
+      height: 310px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .visual-caption {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .project-visual .button {
+      padding: 9px 12px;
+      font-size: 12px;
+    }
+
+    details {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    summary {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    details p {
+      font-size: 14px;
+    }
+
+    /* MUSIC PLAYLIST PROJECT */
+
+    .playlist-preview {
+      padding: 22px;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .playlist-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .music-icon {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      color: var(--secondary);
+      background: var(--hero-end);
+      border-radius: 14px;
+      font-size: 30px;
+    }
+
+    .playlist-heading strong {
+      display: block;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .playlist-heading div > span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .playlist-item {
+      display: grid;
+      grid-template-columns: 25px 1fr 18px;
+      align-items: center;
+      gap: 10px;
+      padding-block: 14px;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .playlist-item > span:first-child {
+      color: var(--muted);
+      font-family: monospace;
+    }
+
+    .playlist-item > span:last-child {
+      color: var(--accent);
+      text-align: right;
+    }
+
+    /* VEHICLE DETECTION PROJECT */
+
+    .detection-scene {
+      position: relative;
+      height: 150px;
+      background:
+        linear-gradient(var(--surface), var(--accent-light));
+      border-bottom: 3px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .detection-box {
+      position: absolute;
+      bottom: 15px;
+      left: 12%;
+      width: 100px;
+      height: 65px;
+      padding: 5px;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    .detection-box.small {
+      bottom: 45px;
+      left: 63%;
+      width: 60px;
+      height: 40px;
+    }
+
+    /* EXPERIENCE AND ACHIEVEMENTS */
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 40px;
+      margin-bottom: 24px;
+    }
+
+    .experience-copy p:first-child {
+      margin-top: 0;
+    }
+
+    .achievement-number {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 30px;
+    }
+
+    /* CV */
+
+    .callout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+      padding: 38px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .callout p {
+      max-width: 620px;
+    }
+
+    /* CONTACT */
+
+    .contact-panel {
+      padding: clamp(26px, 5vw, 48px);
+      background:
+        linear-gradient(
+          125deg,
+          var(--accent-light),
+          var(--surface)
+        );
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .contact-description {
+      max-width: 670px;
+      margin-bottom: 30px;
+    }
+
+    .contact-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 26px;
+      border-top: 1px solid var(--border);
+    }
+
+    .email-block {
+      min-width: 0;
+    }
+
+    .email-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .email-address {
+      display: inline-block;
+      color: var(--accent);
+      font-size: clamp(17px, 3vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      overflow-wrap: anywhere;
+    }
+
+    .email-address:hover {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .email-address span {
+      display: inline-block;
+      margin-left: 6px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding-block: 25px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-layout {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1050px) {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        margin-right: auto;
+      }
+
+      .theme-toggle {
+        order: 1;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        order: 4;
+        flex-basis: 100%;
+        justify-content: flex-start;
+        gap: 0;
+      }
+
+      .nav-links.is-open {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .nav-links a {
+        padding: 10px 5px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      section {
+        padding-block: 55px;
+      }
+
+      .hero,
+      .about-layout,
+      .grid-two,
+      .grid-three,
+      .project,
+      .experience-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        gap: 35px;
+      }
+
+      h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .about-layout,
+      .experience-layout {
+        gap: 22px;
+      }
+
+      .card,
+      .project-content,
+      .project-visual {
+        padding: 24px;
+      }
+
+      .callout {
+        display: block;
+        padding: 27px;
+      }
+
+      .footer-layout {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      nav {
+        gap: 9px;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .theme-toggle,
+      .menu-button {
+        padding: 8px 10px;
+      }
+
+      .nav-links.is-open {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile-photo {
+        height: 290px;
+      }
+
+      .playlist-preview {
+        padding: 16px;
+      }
+
+      .playlist-heading {
+        gap: 10px;
+      }
+
+      .playlist-heading strong {
+        font-size: 13px;
+      }
+
+      .detection-box {
+        width: 80px;
+      }
+
+      .detection-box.small {
+        width: 50px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      body,
+      .button {
+        transition: none;
+      }
+
+      .button:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">
+        Aung Myat Kyaw<span>.</span>
+      </a>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to night mode"
+        aria-pressed="false"
+      >
+        ☾ Night
+      </button>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navigation-links"
+      >
+        Menu ☰
+      </button>
+
+      <div class="nav-links" id="navigation-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#projects">Featured Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#resume">CV / RESUME</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="container hero">
+        <div>
+          <div class="location">
+            <span class="location-dot" aria-hidden="true"></span>
+            Newcastle upon Tyne, UK
+          </div>
+
+          <h1>Aung Myat<br>Kyaw<span>.</span></h1>
+
+          <p class="section-label">
+            Computer Science · AI · Software
+          </p>
+
+          <p class="hero-description">
+            A Computer Science graduate exploring machine learning
+            and building practical software projects.
+          </p>
+
+          <p>
+            My project interests include natural language processing,
+            computer vision, and turning data into useful applications.
+          </p>
+
+          <div class="button-row">
+            <a class="button button-primary" href="#projects">
+              View my projects ↗
+            </a>
+
+            <a
+              class="button"
+              href="./AMKCV/Aung_Myat_Kyaw_IT_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View CV ↗
+            </a>
+
+            <a
+              class="button"
+              href="./AMKCV/Aung_Myat_Kyaw_IT_CV.pdf"
+              download="Aung_Myat_Kyaw_IT_CV.pdf"
+            >
+              Download CV ↓
+            </a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Profile overview">
+          <img
+            class="profile-photo"
+            src="./AungPhoto/AUNG_pfp.jpg"
+            alt="Aung Myat Kyaw wearing a suit in Newcastle"
+            fetchpriority="high"
+          >
+
+          <h2>Learning through building.</h2>
+
+          <p>
+            Exploring ideas, testing approaches, and understanding
+            what makes a solution work.
+          </p>
+
+          <div class="profile-line">
+            <strong>Background</strong>
+            <span>Computer Science</span>
+          </div>
+
+          <div class="profile-line">
+            <strong>Project focus</strong>
+            <span>Language · Vision · Machine learning</span>
+          </div>
+
+          <div class="profile-line">
+            <strong>Based in</strong>
+            <span>Newcastle upon Tyne, United Kingdom</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+      <div class="container">
+        <p class="section-label">01 / About Me</p>
+        <h2>Curiosity drives the next experiment.</h2>
+
+        <div class="about-layout">
+          <div class="about-copy">
+            <p>
+              I’m Aung Myat Kyaw, a Computer Science graduate based
+              in Newcastle upon Tyne. I’m interested in how AI and
+              software can help solve practical problems.
+            </p>
+
+            <p>
+              Through my academic projects, I’ve explored student-query
+              classification, playlist management, and vehicle detection.
+              These projects have helped me develop experience in
+              programming, preparing data, building models, and
+              evaluating results.
+            </p>
+
+            <p>
+              I’m continuing to develop my technical skills while looking
+              for opportunities to learn, contribute, and grow within a
+              professional team.
+            </p>
+          </div>
+
+          <aside class="card">
+            <h3>What interests me</h3>
+
+            <ul class="interest-list">
+              <li>Natural language processing</li>
+              <li>Computer vision and image recognition</li>
+              <li>Machine learning applications</li>
+              <li>Practical software development</li>
+            </ul>
+
+            <p>
+              My approach: understand the problem, build an experiment,
+              evaluate the result, and improve the solution.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <p class="section-label">02 / Education</p>
+        <h2>My academic foundation.</h2>
+
+        <div class="grid-two">
+          <article class="card">
+            <span class="badge">University</span>
+            <h3>BSc Computer Science</h3>
+            <p class="institution">University of Sunderland</p>
+
+            <p>
+              Top-up degree combining computing knowledge with
+              practical project work.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Deep learning</span>
+              <span class="tag">Machine learning</span>
+              <span class="tag">Enterprise Software Engineering</span>
+              <span class="tag">Final-year project</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="badge">2022–2025</span>
+            <h3>Diploma in Computing</h3>
+            <p class="institution">GUSTO College, Myanmar</p>
+
+            <p>
+              Foundation studies covering computing concepts and
+              practical technical work.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Data structures</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Client/server systems</span>
+              <span class="tag">Internet of Things</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <p class="section-label">03 / Technical Skills</p>
+        <h2>Skills behind the projects.</h2>
+
+        <p class="section-description">
+          Technologies and methods explored through academic
+          and practical project work.
+        </p>
+
+        <div class="grid-three">
+          <article class="card">
+            <h3>Programming &amp; Models</h3>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Flask</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">CNN</span>
+              <span class="tag">Faster R-CNN</span>
+              <span class="tag">Object-oriented programming</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Data &amp; Evaluation</h3>
+
+            <div class="tags">
+              <span class="tag">CSV datasets</span>
+              <span class="tag">Text preprocessing</span>
+              <span class="tag">Tokenisation</span>
+              <span class="tag">Label encoding</span>
+              <span class="tag">Confusion matrices</span>
+              <span class="tag">Precision &amp; recall</span>
+              <span class="tag">Average precision</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Applied AI</h3>
+
+            <div class="tags">
+              <span class="tag">Intent classification</span>
+              <span class="tag">Image classification</span>
+              <span class="tag">Object detection</span>
+              <span class="tag">Ollama</span>
+              <span class="tag">Qwen3 1.7B</span>
+              <span class="tag">Model evaluation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <p class="section-label">04 / Featured Projects</p>
+        <h2>Ideas, put into code.</h2>
+
+        <p class="section-description">
+          Selected academic projects exploring language understanding,
+          software development, and computer vision.
+        </p>
+
+        <!-- STUDENT HELPDESK CHATBOT -->
+        <article class="project">
+          <div class="project-visual">
+            <div class="project-category">
+              Final-year research poster
+            </div>
+
+            <iframe
+              class="poster-frame"
+              src="./Poster/Poster.pdf"
+              title="Student Helpdesk Chatbot research poster"
+              loading="lazy"
+            ></iframe>
+
+            <p class="visual-caption">
+              Construction of Chatbot Using Sequential Models
+            </p>
+
+            <div class="button-row">
+              <a
+                class="button"
+                href="./Poster/Poster.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View poster ↗
+              </a>
+
+              <a
+                class="button"
+                href="./Poster/Poster.pdf"
+                download="Aung_Myat_Kyaw_Chatbot_Poster.pdf"
+              >
+                Download poster ↓
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <span class="badge">Final-year project</span>
+            <h3>Student Helpdesk Chatbot</h3>
+
+            <p>
+              A Flask chatbot combining a trained PyTorch LSTM
+              intent classifier, controlled helpdesk answers, and
+              a local Qwen3 1.7B model through Ollama.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Ollama</span>
+              <span class="tag">qwen3:1.7b</span>
+            </div>
+
+            <details>
+              <summary>Read project details</summary>
+
+              <p>
+                <strong>Data preparation:</strong>
+                Combined raw student-query examples with additional
+                examples generated using Qwen3 1.7B through Ollama,
+                then prepared labelled CSV data for training.
+              </p>
+
+              <p>
+                <strong>Model training:</strong>
+                Cleaned and tokenised the queries, built a vocabulary
+                and label encoder, and trained a lightweight LSTM
+                to recognise common helpdesk intents.
+              </p>
+
+              <p>
+                <strong>Response workflow:</strong>
+                The Flask interface passes questions to the intent
+                classifier. Helpdesk queries use a local answer bank.
+                Suitable general or maths queries can use the local
+                Ollama model as a fallback.
+              </p>
+
+              <p>
+                <strong>Evaluation:</strong>
+                The poster presents accuracy and loss curves,
+                a confusion matrix, and ROC analysis.
+              </p>
+            </details>
+          </div>
+        </article>
+
+        <!-- MUSIC PLAYLIST MANAGEMENT SYSTEM -->
+        <article class="project">
+          <div class="project-visual blue">
+            <div class="project-category">
+              Enterprise Software Engineering
+            </div>
+
+            <div class="playlist-preview">
+              <div class="playlist-heading">
+                <span class="music-icon" aria-hidden="true">♫</span>
+
+                <div>
+                  <strong>Music Playlist Manager</strong>
+                  <span>Python · Console application</span>
+                </div>
+              </div>
+
+              <div class="playlist-item">
+                <span>01</span>
+                <span>Manage playlists</span>
+                <span aria-hidden="true">＋</span>
+              </div>
+
+              <div class="playlist-item">
+                <span>02</span>
+                <span>Sort and shuffle songs</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+
+              <div class="playlist-item">
+                <span>03</span>
+                <span>Detect duplicates</span>
+                <span aria-hidden="true">✓</span>
+              </div>
+            </div>
+
+            <p class="visual-caption">
+              Feature illustration · University of Sunderland project
+            </p>
+          </div>
+
+          <div class="project-content">
+            <span class="badge">
+              University of Sunderland · Coursework
+            </span>
+
+            <h3>Music Playlist Management System | Python</h3>
+
+            <p>
+              A console-based music playlist management application
+              developed for Enterprise Software Engineering at the
+              University of Sunderland.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Object-oriented programming</span>
+              <span class="tag">Playlist management</span>
+              <span class="tag">Sorting</span>
+            </div>
+
+            <details>
+              <summary>Read project details</summary>
+
+              <p>
+                <strong>Purpose:</strong>
+                Organise music playlists and manage songs through
+                a console-based interface.
+              </p>
+
+              <p>
+                <strong>Implementation:</strong>
+                Used Python and object-oriented programming to
+                structure the application and its playlist-management
+                features.
+              </p>
+
+              <p>
+                <strong>Features:</strong>
+                Implemented playlist management, song sorting,
+                shuffling, and duplicate detection.
+              </p>
+
+              <p>
+                <strong>Learning:</strong>
+                Applied software engineering principles to organise
+                code, manage application logic, and implement
+                practical functionality.
+              </p>
+            </details>
+          </div>
+        </article>
+
+        <!-- VEHICLE DETECTION -->
+        <article class="project">
+          <div class="project-visual neutral">
+            <div class="project-category">
+              Object detection
+            </div>
+
+            <div
+              class="detection-scene"
+              role="img"
+              aria-label="Illustration of two vehicle detection boxes"
+            >
+              <div class="detection-box">Car</div>
+              <div class="detection-box small">Car</div>
+            </div>
+
+            <p class="visual-caption">
+              Concept illustration · not model output
+            </p>
+          </div>
+
+          <div class="project-content">
+            <h3>Vehicle Detection</h3>
+
+            <p>
+              Applying Faster R-CNN to road-scene imagery from
+              KITTI to locate and classify objects.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Faster R-CNN</span>
+              <span class="tag">MobileNetV3</span>
+              <span class="tag">KITTI</span>
+            </div>
+
+            <details>
+              <summary>Read project details</summary>
+
+              <p>
+                <strong>Approach:</strong>
+                Used a MobileNetV3 FPN detector to predict classes
+                and bounding boxes in road-scene imagery.
+              </p>
+
+              <p>
+                <strong>Results:</strong>
+                Achieved mAP of 0.2408 and Car AP at IoU 0.5
+                of 0.4815.
+              </p>
+
+              <p>
+                <strong>Limitations:</strong>
+                Limited CPU training constrains this academic
+                experiment. It is not a validated driving system.
+              </p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <p class="section-label">05 / Experience</p>
+        <h2>Professional experience.</h2>
+
+        <p class="section-description">
+          Workplace experience alongside my technical interests
+          and project work.
+        </p>
+
+        <article class="card experience-layout">
+          <div>
+            <span class="badge">August 2026–Present</span>
+            <h3>Catering Assistant</h3>
+
+            <p class="institution">
+              Royal Grammar School, Newcastle
+            </p>
+          </div>
+
+          <div class="experience-copy">
+            <p>
+              Support catering operations as part of the school
+              team, with a focus on reliability and safe
+              working practices.
+            </p>
+
+            <p>
+              Developing communication, teamwork, organisation,
+              and time management in a professional workplace.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Teamwork</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Organisation</span>
+              <span class="tag">Reliability</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card experience-layout">
+          <div>
+            <span class="badge">2024–2025</span>
+            <h3>Intern</h3>
+            <p class="institution">Tasaki Myanmar</p>
+          </div>
+
+          <div class="experience-copy">
+            <p>
+              Assisted with day-to-day operations and project tasks,
+              gaining experience in a professional working environment.
+            </p>
+
+            <p>
+              Developed workplace communication, teamwork, and
+              organisation while supporting the team.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Project support</span>
+              <span class="tag">Teamwork</span>
+              <span class="tag">Professional communication</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+      <div class="container">
+        <p class="section-label">06 / Achievements</p>
+        <h2>Milestones through practical work.</h2>
+
+        <div class="grid-three">
+          <article class="card">
+            <span class="achievement-number">01</span>
+            <h3>Final-Year Chatbot</h3>
+
+            <p>
+              Developed a student-query intent classifier using
+              a PyTorch LSTM, combining text processing with
+              local language-model support.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="achievement-number">02</span>
+            <h3>Software Engineering Project</h3>
+
+            <p>
+              Developed a Python music playlist management system
+              using object-oriented programming, with sorting,
+              shuffling, and duplicate detection.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="achievement-number">03</span>
+            <h3>Model Evaluation</h3>
+
+            <p>
+              Applied classification and detection metrics to
+              understand model performance and limitations.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV / RESUME -->
+    <section id="resume">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <p class="section-label">07 / CV / RESUME</p>
+            <h2>CV / RESUME</h2>
+
+            <p>
+              View or download my CV for a summary of my education,
+              technical skills, projects, and professional experience.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a
+              class="button"
+              href="./AMKCV/Aung_Myat_Kyaw_IT_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View CV ↗
+            </a>
+
+            <a
+              class="button button-primary"
+              href="./AMKCV/Aung_Myat_Kyaw_IT_CV.pdf"
+              download="Aung_Myat_Kyaw_IT_CV.pdf"
+            >
+              Download CV ↓
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <p class="section-label">08 / Contact</p>
+          <h2>Let’s start a conversation.</h2>
+
+          <p class="contact-description">
+            I’m interested in opportunities to learn, contribute
+            to a team, and build useful AI and software applications.
+          </p>
+
+          <div class="contact-bottom">
+            <div class="email-block">
+              <span class="email-label">Get in touch</span>
+
+              <a
+                class="email-address"
+                href="mailto:slogoman990@gmail.com"
+              >
+                slogoman990@gmail.com
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <a
+              class="button"
+              href="https://www.linkedin.com/in/aung-myat-kyaw-a33161242/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-layout">
+      <span>
+        © <span id="year"></span> Aung Myat Kyaw
+      </span>
+
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Day / night mode
+    const themeButton = document.getElementById("theme-toggle");
+    const themeColorMeta =
+      document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(theme) {
+      const isDark = theme === "dark";
+
+      document.documentElement.dataset.theme = theme;
+
+      themeButton.textContent = isDark ? "☀ Day" : "☾ Night";
+
+      themeButton.setAttribute(
+        "aria-label",
+        isDark ? "Switch to day mode" : "Switch to night mode"
+      );
+
+      themeButton.setAttribute("aria-pressed", String(isDark));
+      themeColorMeta.content = isDark ? "#101824" : "#ffffff";
+    }
+
+    applyTheme(document.documentElement.dataset.theme || "light");
+
+    themeButton.addEventListener("click", () => {
+      const nextTheme =
+        document.documentElement.dataset.theme === "dark"
+          ? "light"
+          : "dark";
+
+      applyTheme(nextTheme);
+
+      try {
+        localStorage.setItem("amk-theme", nextTheme);
+      } catch {
+        // Theme switching still works without browser storage.
+      }
+    });
+
+    // Mobile navigation
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.getElementById("navigation-links");
+
+    function closeMenu() {
+      navigation.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    }
+
+    menuButton.addEventListener("click", () => {
+      const isOpen =
+        menuButton.getAttribute("aria-expanded") === "true";
+
+      navigation.classList.toggle("is-open", !isOpen);
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        menuButton.getAttribute("aria-expanded") === "true"
+      ) {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+  </script>
+</body>
+</html>
